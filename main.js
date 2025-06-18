@@ -180,7 +180,6 @@ socket.on("joined-room", (roomName) => {
   // You might want to fetch past messages here if you implement message history
 });
 
-// Add handler for room history
 socket.on("room-history", (messages) => {
   messages.forEach((msg) => {
     const data = {
@@ -196,7 +195,13 @@ socket.on("room-history", (messages) => {
 socket.on("clear-messages", () => {
   messageContainer.innerHTML = ""; // Explicitly clear messages
 });
-
+socket.on('user-left', (username) => {
+    const element = document.createElement('li');
+    element.className = 'message-center';
+    element.innerHTML = `<p class="message">${username} has left the room</p>`;
+    messageContainer.appendChild(element);
+    scrollToBottom();
+}); 
 // Add handler for room deletion response
 socket.on("room-deleted", (roomName) => {
   if (currentRoomSpan.innerText === roomName) {
