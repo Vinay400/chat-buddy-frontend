@@ -1,0 +1,402 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5; /* Light gray background */
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px; /* Add some space below the title */
+    color: #333;
+}
+
+/* Styles for Authentication Section */
+#auth-section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto; /* Center the auth section when body is not handling flex */
+}
+
+#auth-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#auth-message {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.auth-form input {
+    width: calc(100% - 30px); /* Account for padding */
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+.auth-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Original Container Styles - now applied to #chat-section via .container class */
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Make it more responsive */
+    max-width: 600px; /* Max width for larger screens */
+    min-height: 85vh; /* Use min-height for flexible content */
+    background-color: #ffffff; /* White background for the chat box */
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin: 20px auto; /* Center the container horizontally with vertical margin */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    color:#7e7e7e;
+}
+
+.name-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 0px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.name-input:focus {
+    border-color: #007bff;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Take full width of container */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+    list-style: none; /* Remove bullet points */
+    overflow-y: auto; /* Enable scrolling for messages */
+    flex-grow: 1; /* Allow message area to grow */
+    max-height: calc(85vh - 200px); /* Adjust based on other elements */
+    min-height: 300px; /* Ensure minimum height */
+}
+
+.message-left, .message-right {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px; /* Add some spacing between messages */
+    width: 100%;
+}
+
+.message-left {
+    justify-content: flex-start;
+
+}
+
+.message-right {
+    justify-content: flex-end;
+ 
+}
+
+.message-left .message, .message-right .message {
+    padding: 8px 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.message-left .message {
+    background-color: #e0e0e0; /* Light gray for incoming messages */
+    color: #333;
+    border-radius: 15px 15px 15px 0; /* Rounded corners */
+    text-align: left;
+}
+
+.message-right .message {
+    background-color: #007bff; /* Blue for outgoing messages */
+    color: #fff;
+    border-radius: 15px 15px 0 15px; /* Rounded corners */
+    text-align: left;
+}
+
+.message p {
+    margin: 0; /* Remove default paragraph margin */
+}
+
+.message span {
+    display: block;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.5); /* Lighter color for timestamp */
+}
+
+.message-right .message span {
+    color: rgba(255, 255, 255, 0.7); /* Lighter color for timestamp on dark background */
+}
+
+.message-feedback {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-style: italic;
+    color: #777;
+}
+
+.message-form {
+    display: flex;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    position: relative;
+    bottom: unset;
+    width: 100%;
+    gap: 10px;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    min-width: 0; /* Allows input to shrink below its default minimum width */
+}
+
+.message-input:focus {
+    border-color: #007bff;
+}
+
+.send-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 0px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 396px) {
+    .message-form {
+        padding: 10px 5px;
+    }
+    
+    .message-input {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .send-button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .send-button span {
+        display: none; /* Hide the icon on very small screens */
+    }
+}
+
+.v-divider {
+    display: none; /* Remove the vertical divider */
+}
+
+.clients-total {
+    margin-top: 20px;
+    color: #555;
+    font-size: 0.9rem;
+    position: relative; /* Change from absolute to relative */
+    top: unset; /* Remove absolute positioning */
+}
+
+#logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Styles for Modal */
+.modal {
+    display: none; /* Hidden by default, controlled by JS */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top, ensure it's above other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex; /* Use flex to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto; /* Center modal, overridden by flex */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more responsive */
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative; /* Needed for close button positioning */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex; /* Flex for content within modal */
+    flex-direction: column;
+    gap: 15px; /* Spacing between modal elements */
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.room-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.room-controls input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+.room-controls button {
+    background-color: #28a745; /* Green color for join/create */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Prevent button text wrapping */
+}
+
+.room-controls button:hover {
+    background-color: #218838;
+}
+
+.room-info h2, .room-info p {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.room-info ul {
+    list-style: none;
+    padding: 0;
+    max-height: 200px; /* Limit height for scrollable list */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.room-info li {
+    background-color: #e9ecef;
+    padding: 8px 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.room-info li:hover {
+    background-color: #dae0e5;
+}
+
+.room-info li .room-name {
+    flex-grow: 1;
+}
+
+.room-info li .delete-room {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.room-info li .delete-room:hover {
+    background-color: #c82333;
+}
+
+.room-info li .delete-room:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+} 

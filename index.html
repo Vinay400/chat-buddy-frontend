@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="./style.css" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+</head>
+<body>
+    <h1>Chat Buddy </h1>
+    <div id="auth-section" style="display: block;">
+        <h2>Join Chat Buddy</h2>
+        <p id="auth-message" style="color: red;"></p>
+        <div class="auth-form">
+            <input type="text" id="auth-username" placeholder="Username" required>
+            <input type="password" id="auth-password" placeholder="Password" required>
+            <button id="register-button">Register</button>
+            <button id="login-button">Login</button>
+        </div>
+    </div>
+
+    <div id="chat-section" class="container" style="display: none;">
+        <div class="main">
+        <span><i class="far fa-user"></i></span>
+        <input type="text" id="name-input" class="name-input" maxlength="50" value="anonymous">
+        </div>
+
+        <!-- Button to Open Room Selection Modal -->
+        <button id="open-rooms-modal-button">Manage Rooms</button>
+
+        <ul class="message-container" id="message-container">
+        </ul>
+        <p class="feedback" id="feedback"></p>
+     <form id="message-form" class="message-form">
+        <input type="text" name="message" id="message-input" class="message-input" maxlength="50">
+        <div class="v-divider"></div>
+        <button type="submit" class="send-button">send<span><i class="fas fa-paper-plane"></i></span></span></button>
+    </form>
+    <h3 class="clients-total" id="client-total">Total clients: 2</h3>
+    <button id="logout-button">Logout</button>
+</div>
+
+<!-- Rooms Modal -->
+<div id="rooms-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Manage Chat Rooms</h2>
+        
+        <div class="room-controls">
+            <input type="text" id="room-input" placeholder="Enter or create room name" maxlength="20">
+            <button id="join-room-button">Join/Create Room</button>
+        </div>
+        
+        <div class="room-info">
+            <p>Current Room: <span id="current-room">General</span></p>
+            <p>Available Rooms:</p>
+            <ul id="room-list"></ul>
+        </div>
+    </div>
+</div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
