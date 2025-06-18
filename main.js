@@ -1,6 +1,7 @@
 const socket = io('https://chat-buddy-g53x.onrender.com/',{
     autoConnect: false // Prevent auto-connection; connect only after authentication
 });
+const BACKEND_URL = 'https://chat-buddy-g53x.onrender.com';
 console.log('Socket initialized, autoConnect: false');
 const clientsTotal = document.getElementById('client-total');
 const messageContainer = document.getElementById('message-container');
@@ -46,7 +47,7 @@ async function authenticate(endpoint) {
     }
 
     try {
-        const response = await fetch(`/${endpoint}`, {
+        const response = await fetch(`/${BACKEND_URL}/${endpoint}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
