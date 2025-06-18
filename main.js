@@ -1,4 +1,4 @@
-const socket = io({
+const socket = io('https://chat-buddy-g53x.onrender.com/',{
     autoConnect: false // Prevent auto-connection; connect only after authentication
 });
 console.log('Socket initialized, autoConnect: false');
