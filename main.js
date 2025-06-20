@@ -1,5 +1,5 @@
 const socket = io("https://chat-buddy-g53x.onrender.com/", {
-  autoConnect: false, // Prevent auto-connection; connect only after authentication
+  autoConnect: false,
 });
 const BACKEND_URL = "https://chat-buddy-g53x.onrender.com";
 console.log("Socket initialized, autoConnect: false");
@@ -32,7 +32,6 @@ const closeButton = roomsModal.querySelector(".close-button");
 
 messageContainer.innerHTML = "";
 
-// Hide room modal and button by default on page load
 openRoomsModalButton.style.display = "none";
 roomsModal.style.display = "none";
 
@@ -198,7 +197,7 @@ socket.on("clear-messages", () => {
 socket.on('user-left', (username) => {
     const element = document.createElement('li');
     element.className = 'message-center';
-    element.innerHTML = `<p class="message">${username} has left the room</p>`;
+    element.innerHTML = `<p class="message"><em>${username} has left the chat</em></p>`;
     messageContainer.appendChild(element);
     scrollToBottom();
 }); 
