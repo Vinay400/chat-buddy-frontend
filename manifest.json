@@ -14,7 +14,7 @@
     },
     {
       "src": "images/send-paper-svgrepo-com.svg",
-      "sizes": "any",
+      "sizes": "512x512",
       "type": "image/svg+xml"
     }
   ]
